@@ -1,7 +1,7 @@
 # Claude-Ready Resume Analyzer — Frontend Migration Design
 
 **Date:** 2026-05-02
-**Status:** Approved
+**Status:** Implemented (superseded by Supabase integration)
 **Scope:** Frontend-first migration from Puter.js to Claude API
 
 ---
@@ -25,6 +25,8 @@ Browser
 ```
 
 **Known trade-off:** `VITE_ANTHROPIC_API_KEY` is visible in the browser bundle during this phase. Accepted. When the real backend is built, the Claude call moves server-side and the key stays hidden.
+
+> **Resolved in Phase 2:** The Anthropic API key was moved to a Supabase Edge Function. `VITE_ANTHROPIC_API_KEY` has been removed from `.env`. See `2026-05-02-supabase-integration-design.md`.
 
 ---
 

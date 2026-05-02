@@ -39,7 +39,7 @@
 - Create: `.env`
 - Install: `@anthropic-ai/sdk`
 
-- [ ] **Step 1: Install the SDK**
+- [x] **Step 1: Install the SDK**
 
 ```bash
 npm install @anthropic-ai/sdk
@@ -47,7 +47,7 @@ npm install @anthropic-ai/sdk
 
 Expected output: `added 1 package` (or similar), no errors.
 
-- [ ] **Step 2: Create .env**
+- [x] **Step 2: Create .env**
 
 Create `.env` at the project root with:
 
@@ -57,7 +57,7 @@ VITE_ANTHROPIC_API_KEY=your-key-here
 
 Replace `your-key-here` with a real Anthropic API key. This file already exists with `OPENAI_API_KEY` — replace its entire contents.
 
-- [ ] **Step 3: Verify typecheck still passes**
+- [x] **Step 3: Verify typecheck still passes**
 
 ```bash
 npm run typecheck
@@ -72,7 +72,7 @@ Expected: no new errors introduced.
 **Files:**
 - Create: `app/lib/store.ts`
 
-- [ ] **Step 1: Create the store**
+- [x] **Step 1: Create the store**
 
 Create `app/lib/store.ts`:
 
@@ -105,7 +105,7 @@ export const useAppStore = create<AppStore>((set) => ({
 }));
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -120,7 +120,7 @@ Expected: no errors on `app/lib/store.ts`.
 **Files:**
 - Create: `app/lib/rateLimit.ts`
 
-- [ ] **Step 1: Create the module**
+- [x] **Step 1: Create the module**
 
 Create `app/lib/rateLimit.ts`:
 
@@ -163,7 +163,7 @@ export function getRemainingToday(userId: string): number {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -180,7 +180,7 @@ Expected: no errors.
 
 The stubs persist data to localStorage so the app works end-to-end without a real backend. The function signatures match what the real backend will return — only the bodies change when the backend is ready.
 
-- [ ] **Step 1: Create the module**
+- [x] **Step 1: Create the module**
 
 Create `app/lib/api.ts`:
 
@@ -236,7 +236,7 @@ export async function getResume(id: string): Promise<Resume | null> {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -253,7 +253,7 @@ Expected: no errors.
 
 Uses the same pdfjs setup pattern as `app/lib/pdf2image.ts` but extracts text instead of rendering to canvas.
 
-- [ ] **Step 1: Create the module**
+- [x] **Step 1: Create the module**
 
 Create `app/lib/pdfText.ts`:
 
@@ -294,7 +294,7 @@ export async function extractTextFromPdf(file: File): Promise<string> {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -309,7 +309,7 @@ Expected: no errors.
 **Files:**
 - Create: `app/lib/claude.ts`
 
-- [ ] **Step 1: Create the wrapper**
+- [x] **Step 1: Create the wrapper**
 
 Create `app/lib/claude.ts`:
 
@@ -346,7 +346,7 @@ export async function analyzeResume(
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -364,13 +364,13 @@ Expected: no errors.
 - Delete: `app/routes/auth.tsx`
 - Delete: `app/routes/wipe.tsx`
 
-- [ ] **Step 1: Delete Puter files**
+- [x] **Step 1: Delete Puter files**
 
 ```bash
 rm app/lib/puter.ts types/puter.d.ts app/routes/auth.tsx app/routes/wipe.tsx
 ```
 
-- [ ] **Step 2: Expect typecheck errors (normal at this step)**
+- [x] **Step 2: Expect typecheck errors (normal at this step)**
 
 ```bash
 npm run typecheck
@@ -387,7 +387,7 @@ Expected: errors in `app/root.tsx`, `app/routes/home.tsx`, `app/routes/upload.ts
 
 Remove the Puter script tag and `usePuterStore` import. Initialize auth from localStorage on mount using the Zustand store.
 
-- [ ] **Step 1: Replace root.tsx**
+- [x] **Step 1: Replace root.tsx**
 
 Replace the entire content of `app/root.tsx` with:
 
@@ -481,7 +481,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck (errors should reduce)**
+- [x] **Step 2: Verify typecheck (errors should reduce)**
 
 ```bash
 npm run typecheck
@@ -497,7 +497,7 @@ Expected: `root.tsx` errors resolved. Remaining errors only in routes files.
 - Modify: `app/routes.ts`
 - Create: `app/routes/login.tsx`
 
-- [ ] **Step 1: Update routes.ts**
+- [x] **Step 1: Update routes.ts**
 
 Replace the entire content of `app/routes.ts` with:
 
@@ -512,7 +512,7 @@ export default [
 ] satisfies RouteConfig;
 ```
 
-- [ ] **Step 2: Create login.tsx**
+- [x] **Step 2: Create login.tsx**
 
 Create `app/routes/login.tsx`:
 
@@ -597,7 +597,7 @@ export default function Login() {
 }
 ```
 
-- [ ] **Step 3: Verify typecheck**
+- [x] **Step 3: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -614,7 +614,7 @@ Expected: no errors on `routes.ts` or `login.tsx`.
 
 Replace `usePuterStore` with `useAppStore` + `api.getResumes()` + `rateLimit.getRemainingToday()`.
 
-- [ ] **Step 1: Replace home.tsx**
+- [x] **Step 1: Replace home.tsx**
 
 Replace the entire content of `app/routes/home.tsx` with:
 
@@ -703,7 +703,7 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -720,7 +720,7 @@ Expected: no errors on `home.tsx`.
 
 Replace all Puter calls with: rate limit check → PDF text extraction → Claude analysis → API save → rate limit record → redirect.
 
-- [ ] **Step 1: Replace upload.tsx**
+- [x] **Step 1: Replace upload.tsx**
 
 Replace the entire content of `app/routes/upload.tsx` with:
 
@@ -875,7 +875,7 @@ const Upload = () => {
 export default Upload;
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -892,7 +892,7 @@ Expected: no errors on `upload.tsx`.
 
 Replace Puter KV + file system calls with `api.getResume(id)`. Remove image loading — no images are stored in this phase.
 
-- [ ] **Step 1: Replace resume.tsx**
+- [x] **Step 1: Replace resume.tsx**
 
 Replace the entire content of `app/routes/resume.tsx` with:
 
@@ -972,7 +972,7 @@ const Resume = () => {
 export default Resume;
 ```
 
-- [ ] **Step 2: Final typecheck — must pass clean**
+- [x] **Step 2: Final typecheck — must pass clean**
 
 ```bash
 npm run typecheck
@@ -980,7 +980,7 @@ npm run typecheck
 
 Expected: **zero errors**. If any errors remain, fix them before proceeding.
 
-- [ ] **Step 3: Start dev server and verify the app works end-to-end**
+- [x] **Step 3: Start dev server and verify the app works end-to-end**
 
 ```bash
 npm run dev

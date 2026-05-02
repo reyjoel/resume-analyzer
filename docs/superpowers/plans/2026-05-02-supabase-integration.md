@@ -35,7 +35,7 @@
 - Install: `@supabase/supabase-js`
 - Modify: `.env`
 
-- [ ] **Step 1: Install the SDK**
+- [x] **Step 1: Install the SDK**
 
 ```bash
 npm install @supabase/supabase-js
@@ -43,7 +43,7 @@ npm install @supabase/supabase-js
 
 Expected: `added N packages`, no errors.
 
-- [ ] **Step 2: Add env vars to .env**
+- [x] **Step 2: Add env vars to .env**
 
 Append to `.env` (keep the existing `VITE_ANTHROPIC_API_KEY` line):
 
@@ -54,7 +54,7 @@ VITE_SUPABASE_ANON_KEY=your-anon-public-key
 
 Replace the placeholder values with the real ones from **Supabase dashboard → Project Settings → API**.
 
-- [ ] **Step 3: Verify typecheck passes**
+- [x] **Step 3: Verify typecheck passes**
 
 ```bash
 npm run typecheck
@@ -69,7 +69,7 @@ Expected: zero errors.
 **Files:**
 - Create: `app/lib/supabase.ts`
 
-- [ ] **Step 1: Create the file**
+- [x] **Step 1: Create the file**
 
 ```typescript
 import { createClient } from '@supabase/supabase-js';
@@ -80,7 +80,7 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -97,7 +97,7 @@ Expected: zero errors.
 
 Remove `token` (Supabase manages JWT internally). Change `setAuth` to accept just the user object. Keep `hydrated` and `setHydrated` — still needed for the initial session check before routes can safely redirect.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { create } from 'zustand';
@@ -130,7 +130,7 @@ export const useAppStore = create<AppStore>((set) => ({
 }));
 ```
 
-- [ ] **Step 2: Verify typecheck (errors expected in callers — that's fine)**
+- [x] **Step 2: Verify typecheck (errors expected in callers — that's fine)**
 
 ```bash
 npm run typecheck
@@ -147,7 +147,7 @@ Expected: errors in `root.tsx`, `login.tsx`, `home.tsx`, `upload.tsx`, `resume.t
 
 Remove `login()`. Replace localStorage with Supabase queries. Map snake_case DB columns to the camelCase `Resume` TypeScript type.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { supabase } from './supabase';
@@ -218,7 +218,7 @@ export async function getResume(id: string): Promise<Resume | null> {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -235,7 +235,7 @@ Expected: no errors on `api.ts`. Errors may remain in `login.tsx` (still imports
 
 Replace all localStorage logic with Supabase `daily_usage` queries. All three exports become `async`.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { supabase } from './supabase';
@@ -294,7 +294,7 @@ export async function getRemainingToday(userId: string): Promise<number> {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -311,7 +311,7 @@ Expected: errors in `upload.tsx` and `home.tsx` where `canAnalyze`, `recordAnaly
 
 Replace the localStorage `useEffect` with `supabase.auth.getSession()` (initial check) and `onAuthStateChange` (subsequent changes). Clean up the subscription on unmount.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import {
@@ -415,7 +415,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -432,7 +432,7 @@ Expected: `root.tsx` errors resolved. Remaining errors in `login.tsx`, `home.tsx
 
 Full rewrite. Two tabs (Sign In / Sign Up). After sign-up, show `VerifyEmail` component inline with a resend button (60s cooldown).
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { useState, useEffect, type FormEvent } from 'react';
@@ -629,7 +629,7 @@ export default function Login() {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -646,7 +646,7 @@ Expected: no errors on `login.tsx`.
 
 Add a Sign Out button. `onAuthStateChange` in `root.tsx` handles clearing the store and redirect.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { Link } from 'react-router';
@@ -680,7 +680,7 @@ const Navbar = () => {
 export default Navbar;
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -697,7 +697,7 @@ Expected: no errors on `Navbar.tsx`.
 
 Replace `token`/`hydrated` with `user`/`hydrated`. `getRemainingToday` is now async — fetch it in a `useEffect` and store in state.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import type { Route } from './+types/home';
@@ -789,7 +789,7 @@ export default function Home() {
 }
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -806,7 +806,7 @@ Expected: no errors on `home.tsx`.
 
 Replace `token`/`hydrated` with `user`/`hydrated`. Await `canAnalyze` and `recordAnalysis` (now async).
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { useState, type FormEvent } from 'react';
@@ -960,7 +960,7 @@ const Upload = () => {
 export default Upload;
 ```
 
-- [ ] **Step 2: Verify typecheck**
+- [x] **Step 2: Verify typecheck**
 
 ```bash
 npm run typecheck
@@ -977,7 +977,7 @@ Expected: no errors on `upload.tsx`.
 
 Replace `token`/`hydrated` with `user`/`hydrated`.
 
-- [ ] **Step 1: Replace entire file**
+- [x] **Step 1: Replace entire file**
 
 ```typescript
 import { useEffect, useState } from 'react';
@@ -1055,7 +1055,7 @@ const Resume = () => {
 export default Resume;
 ```
 
-- [ ] **Step 2: Final typecheck — must be zero errors**
+- [x] **Step 2: Final typecheck — must be zero errors**
 
 ```bash
 npm run typecheck
@@ -1063,7 +1063,7 @@ npm run typecheck
 
 Expected: **zero errors**. If any remain, fix before proceeding.
 
-- [ ] **Step 3: Start dev server and verify end-to-end**
+- [x] **Step 3: Start dev server and verify end-to-end**
 
 ```bash
 npm run dev
@@ -1082,6 +1082,45 @@ Test in browser at `http://localhost:5173`:
 9. "4/5 analyses remaining today" after one analysis ✓
 10. Sign Out button in Navbar → redirected to `/login` ✓
 11. Sign In tab — log back in → home page ✓
+
+---
+
+## Additional Changes (Post-Plan)
+
+These were implemented after the original plan was complete:
+
+### Move Claude API call to Supabase Edge Function
+
+The Anthropic SDK was removed from the frontend. `app/lib/claude.ts` was rewritten to call `supabase.functions.invoke('analyze-resume')` instead.
+
+- `VITE_ANTHROPIC_API_KEY` removed from `.env`
+- `AIBusyError` class added to `claude.ts` for typed AI failure handling
+- Edge function code stored in `supabase_edge/supabase_edge_code.ts` (gitignored)
+- `tsconfig.json` updated with `"exclude": ["supabase_edge"]` to prevent Deno type errors
+
+### Edge function saves resumes
+
+Resume persistence was moved from `upload.tsx` → `api.ts` → Supabase into the Edge Function itself. The frontend no longer calls `saveResume()`. The Edge Function saves with real feedback on success, or with `emptyFeedback` (all 0 scores) if the AI call fails, ensuring submissions are never lost.
+
+### Error handling improvements
+
+- `ErrorModal` component added to `upload.tsx` (full-screen overlay with dismiss button)
+- Per-failure-point error messages: PDF parse error, AI busy, unexpected error
+- `login.tsx` `handleSignIn` wrapped in try/finally to always reset `isLoading`
+- `Navbar.tsx` `signOut` now logs errors via `console.error`
+
+### SSR hydration fix
+
+Added `suppressHydrationWarning` to `<body>` in `root.tsx`. Supabase `createClient` reads `localStorage` synchronously, causing a mismatch between server-rendered and client-rendered HTML.
+
+### Test suite
+
+44 tests across 5 files using Vitest + @testing-library/react + happy-dom:
+- `app/lib/utils.test.ts` — 10 tests
+- `constants/index.test.ts` — 6 tests
+- `app/lib/rateLimit.test.ts` — 11 tests
+- `app/lib/api.test.ts` — 9 tests
+- `app/routes/login.test.tsx` — 8 tests
 
 ---
 
