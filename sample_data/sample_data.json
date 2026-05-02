@@ -1,0 +1,124 @@
+{
+  "overallScore": 82,
+  "ATS": {
+    "score": 86,
+    "tips": [
+      {
+        "type": "good",
+        "tip": "Good use of relevant technical keywords such as React, Node.js, REST APIs, and databases which are commonly parsed by ATS systems."
+      },
+      {
+        "type": "improve",
+        "tip": "Add more explicit mentions of TypeScript, Redux/RTK Query, and Express since these are key requirements in the job description."
+      },
+      {
+        "type": "improve",
+        "tip": "Include keywords related to data pipelines, large dataset processing, and scalability to better match the role's emphasis on data-intensive applications."
+      },
+      {
+        "type": "improve",
+        "tip": "Add cloud platform keywords such as AWS, Azure, or GCP and CI/CD tools to increase keyword matching with the job description."
+      }
+    ]
+  },
+  "toneAndStyle": {
+    "score": 80,
+    "tips": [
+      {
+        "type": "good",
+        "tip": "Clear and Professional Tone",
+        "explanation": "The resume maintains a professional tone suitable for engineering roles. Technical descriptions are straightforward and easy for recruiters and technical reviewers to understand."
+      },
+      {
+        "type": "improve",
+        "tip": "Use More Impact-Focused Statements",
+        "explanation": "Many bullet points likely describe responsibilities instead of measurable achievements. Use strong action verbs and metrics such as 'Improved API response time by 40%' or 'Processed datasets with over 5M records' to demonstrate impact."
+      },
+      {
+        "type": "improve",
+        "tip": "Reduce Generic Phrasing",
+        "explanation": "Avoid generic phrases such as 'responsible for developing features'. Instead, emphasize technical contributions such as architecture decisions, performance optimizations, and system scalability improvements."
+      },
+      {
+        "type": "improve",
+        "tip": "Highlight Problem-Solving and Collaboration",
+        "explanation": "The job description emphasizes solving complex problems and collaborating with product managers and designers. Including examples of cross-team collaboration or technical leadership would strengthen alignment."
+      }
+    ]
+  },
+  "content": {
+    "score": 83,
+    "tips": [
+      {
+        "type": "good",
+        "tip": "Relevant Full Stack Experience",
+        "explanation": "The resume appears to cover both frontend and backend technologies, which aligns well with the Full Stack Engineer role. Mentioning technologies like React, Node.js, and APIs demonstrates relevant technical breadth."
+      },
+      {
+        "type": "improve",
+        "tip": "Highlight Data Processing Experience",
+        "explanation": "This role emphasizes building complex data processing pipelines and handling large datasets. The resume should clearly demonstrate experience with ETL pipelines, data transformation, analytics workflows, or large-scale data processing."
+      },
+      {
+        "type": "improve",
+        "tip": "Show System Design Experience",
+        "explanation": "The job description values developers who can optimize performance and scalability. Add examples where you designed scalable systems, improved database performance, optimized queries, or implemented caching strategies."
+      },
+      {
+        "type": "improve",
+        "tip": "Add Cloud and DevOps Exposure",
+        "explanation": "Cloud platforms and CI/CD pipelines are listed as desired skills. Including experience with AWS services, Docker, deployment pipelines, or infrastructure automation would significantly improve relevance."
+      }
+    ]
+  },
+  "structure": {
+    "score": 84,
+    "tips": [
+      {
+        "type": "good",
+        "tip": "Logical Resume Organization",
+        "explanation": "The resume likely follows a common structure including summary, experience, skills, and education sections, which works well for ATS parsing and recruiter readability."
+      },
+      {
+        "type": "improve",
+        "tip": "Add a Strong Professional Summary",
+        "explanation": "A concise summary at the top describing years of experience, core technologies, and specialization in data-driven web applications would quickly communicate your value to recruiters."
+      },
+      {
+        "type": "improve",
+        "tip": "Improve Bullet Point Consistency",
+        "explanation": "Ensure that all bullet points follow a consistent format such as 'Action Verb + Technology + Impact'. Consistent formatting improves readability and ATS parsing."
+      },
+      {
+        "type": "improve",
+        "tip": "Separate Technical Skills Clearly",
+        "explanation": "Organizing skills into categories such as 'Frontend', 'Backend', 'Databases', 'Cloud/DevOps', and 'Tools' helps recruiters quickly assess your technical stack."
+      }
+    ]
+  },
+  "skills": {
+    "score": 77,
+    "tips": [
+      {
+        "type": "good",
+        "tip": "Strong Full Stack Technology Coverage",
+        "explanation": "The resume includes key full stack technologies such as React, Node.js, APIs, and databases which are directly relevant to the job requirements."
+      },
+      {
+        "type": "improve",
+        "tip": "Emphasize TypeScript Expertise",
+        "explanation": "The job description strongly emphasizes TypeScript proficiency and proper typing practices. This should be clearly highlighted in both the skills section and project descriptions."
+      },
+      {
+        "type": "improve",
+        "tip": "Add State Management Technologies",
+        "explanation": "The role requires experience with Redux or RTK Query. Explicitly listing these technologies and describing their usage in projects would improve alignment with the job description."
+      },
+      {
+        "type": "improve",
+        "tip": "Include Data Engineering and Performance Skills",
+        "explanation": "Because the role focuses on data-intensive applications, consider highlighting skills such as ETL pipelines, query optimization, caching strategies, large dataset processing, and database indexing."
+      }
+    ]
+  }
+}

@@ -5,3 +5,6 @@
 # React Router
 /.react-router/
 /build/
+
+# Supabase edge function drafts (local reference only)
+/supabase_edge/
