@@ -11,16 +11,16 @@ import { generateUUID } from '~/lib/utils';
 function ErrorModal({ message, onClose }: { message: string; onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-4 flex flex-col gap-4">
+      <div className="bg-surface rounded-2xl border border-border shadow-xl p-8 w-full max-w-md mx-4 flex flex-col gap-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-10 h-10 rounded-full bg-[rgba(248,113,113,0.15)] flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
             </svg>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">Something went wrong</h3>
-            <p className="text-sm text-gray-600 mt-1">{message}</p>
+            <h3 className="font-semibold text-text-primary">Something went wrong</h3>
+            <p className="text-sm text-text-secondary mt-1">{message}</p>
           </div>
         </div>
         <button
@@ -119,7 +119,7 @@ const Upload = () => {
   }
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main>
       <Navbar />
 
       {errorMessage && (

@@ -660,7 +660,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/">
-        <p className="text-2xl font-bold text-gradient">RESUMIND</p>
+        <p className="text-2xl font-bold text-gradient">HireLens AI</p>
       </Link>
       <div className="flex items-center gap-4">
         <Link to="/upload" className="primary-button w-fit">

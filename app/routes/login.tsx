@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { supabase } from '~/lib/supabase';
 
 export const meta = () => [
-  { title: 'Resume Analyzer | Login' },
+  { title: 'HireLens AI | Login' },
   { name: 'description', content: 'Sign in to your account' },
 ];
 
@@ -31,27 +31,27 @@ function VerifyEmail({ email }: { email: string }) {
 
   return (
     <div className="flex flex-col items-center gap-6 text-center">
-      <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center">
-        <svg className="w-8 h-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="w-16 h-16 bg-[rgba(124,107,255,0.15)] rounded-full flex items-center justify-center">
+        <svg className="w-8 h-8 text-[#9b8cff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       </div>
       <div>
-        <h2 className="text-xl font-bold text-gray-900">Check your email</h2>
-        <p className="text-gray-500 text-sm mt-1">
-          We sent a verification link to <span className="font-medium text-gray-800">{email}</span>
+        <h2 className="text-xl font-bold text-text-primary">Check your email</h2>
+        <p className="text-text-secondary text-sm mt-1">
+          We sent a verification link to <span className="font-medium text-text-primary">{email}</span>
         </p>
       </div>
       {status === 'sent' && (
-        <p className="text-green-600 text-sm font-medium">Email resent!</p>
+        <p className="text-green-400 text-sm font-medium">Email resent!</p>
       )}
       {status === 'error' && (
-        <p className="text-red-500 text-sm">Failed to resend. Please try again.</p>
+        <p className="text-red-400 text-sm">Failed to resend. Please try again.</p>
       )}
       <button
         onClick={handleResend}
         disabled={status === 'sending' || cooldown > 0}
-        className="text-indigo-600 text-sm font-medium hover:underline disabled:opacity-50 disabled:no-underline"
+        className="text-[#9b8cff] text-sm font-medium hover:underline disabled:opacity-50 disabled:no-underline"
       >
         {cooldown > 0 ? `Resend in ${cooldown}s` : status === 'sending' ? 'Sending...' : 'Resend verification email'}
       </button>
@@ -116,8 +116,8 @@ export default function Login() {
 
   if (verifyEmail) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-cover bg-[url('/images/bg-main.svg')]">
-        <div className="bg-white rounded-2xl shadow-lg p-10 w-full max-w-md">
+      <main className="min-h-screen flex items-center justify-center">
+        <div className="bg-surface rounded-2xl border border-border p-10 w-full max-w-md">
           <VerifyEmail email={verifyEmail} />
         </div>
       </main>
@@ -125,22 +125,22 @@ export default function Login() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-cover bg-[url('/images/bg-main.svg')]">
-      <div className="bg-white rounded-2xl shadow-lg p-10 w-full max-w-md flex flex-col gap-6">
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="bg-surface rounded-2xl border border-border p-10 w-full max-w-md flex flex-col gap-6">
         <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-text-primary">
             {tab === 'signin' ? 'Welcome back' : 'Create an account'}
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-text-secondary text-sm">
             {tab === 'signin' ? 'Sign in to analyze your resume' : 'Start analyzing your resume for free'}
           </p>
         </div>
 
-        <div className="flex border-b border-gray-200">
+        <div className="flex border-b border-border">
           <button
             onClick={() => { setTab('signin'); setError(''); }}
             className={`pb-2 px-4 text-sm font-medium border-b-2 -mb-px transition-colors ${
-              tab === 'signin' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500'
+              tab === 'signin' ? 'border-[#9b8cff] text-[#9b8cff]' : 'border-transparent text-text-secondary'
             }`}
           >
             Sign In
@@ -148,7 +148,7 @@ export default function Login() {
           <button
             onClick={() => { setTab('signup'); setError(''); }}
             className={`pb-2 px-4 text-sm font-medium border-b-2 -mb-px transition-colors ${
-              tab === 'signup' ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500'
+              tab === 'signup' ? 'border-[#9b8cff] text-[#9b8cff]' : 'border-transparent text-text-secondary'
             }`}
           >
             Sign Up

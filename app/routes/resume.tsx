@@ -7,7 +7,7 @@ import { getResume } from '~/lib/api';
 import { useAppStore } from '~/lib/store';
 
 export const meta = () => [
-  { title: 'Resume Analyzer | Review' },
+  { title: 'HireLens AI | Review' },
   { name: 'description', content: 'Detailed overview of your resume' },
 ];
 
@@ -38,23 +38,23 @@ const Resume = () => {
     <main className="!pt-0">
       <nav className="resume-nav">
         <Link to="/" className="back-button">
-          <img src="/icons/back.svg" alt="back" className="w-2.5 h-2.5" />
-          <span className="text-gray-800 text-sm font-semibold">Back to Homepage</span>
+          <img src="/icons/back.svg" alt="back" className="w-2.5 h-2.5 invert opacity-70" />
+          <span className="text-sm font-semibold">Back to Homepage</span>
         </Link>
       </nav>
 
       <div className="flex flex-row w-full max-lg:flex-col-reverse">
-        <section className="feedback-section bg-[url('/images/bg-small.svg')] bg-cover h-[100vh] sticky top-0 items-center justify-center">
+        <section className="feedback-section bg-surface h-[100vh] sticky top-0 items-center justify-center border-r border-border">
           {resume && (
             <div className="animate-in fade-in duration-1000 p-8 text-center">
-              <h2 className="text-xl font-bold text-gray-800">{resume.companyName}</h2>
-              <p className="text-gray-500">{resume.jobTitle}</p>
+              <h2 className="text-xl font-bold text-text-primary">{resume.companyName}</h2>
+              <p className="text-text-secondary">{resume.jobTitle}</p>
             </div>
           )}
         </section>
 
         <section className="feedback-section">
-          <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
+          <h2 className="text-4xl !text-text-primary font-bold">Resume Review</h2>
           {feedback ? (
             <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
               <Summary feedback={feedback} />

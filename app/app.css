@@ -5,44 +5,51 @@
 @theme {
   --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --color-dark-200: #475467;
-  --color-light-blue-100: #c1d3f81a;
-  --color-light-blue-200: #a7bff14d;
 
-  --color-badge-green: #d5faf1;
-  --color-badge-red: #f9e3e2;
-  --color-badge-yellow: #fceed8;
+  --color-surface: #161616;
+  --color-surface-2: #1e1e1e;
+  --color-surface-3: #262626;
+  --color-border: #2a2a2a;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #888898;
 
-  --color-badge-green-text: #254d4a;
-  --color-badge-red-text: #752522;
-  --color-badge-yellow-text: #73321b;
+  --color-badge-green: rgba(74, 222, 128, 0.12);
+  --color-badge-red: rgba(248, 113, 113, 0.12);
+  --color-badge-yellow: rgba(251, 191, 36, 0.12);
+
+  --color-badge-green-text: #4ade80;
+  --color-badge-red-text: #f87171;
+  --color-badge-yellow-text: #fbbf24;
 }
 
 html,
 body {
-  @apply bg-white;
+  background: #0f0f0f;
+  color: #f0f0f0;
 }
 
 main {
   @apply min-h-screen pt-10;
 }
+
 h1 {
-  @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+  @apply max-sm:text-[3rem] text-6xl text-gradient leading-tight xl:tracking-[-2px] font-semibold;
 }
 
 h2 {
-  @apply max-sm:text-xl text-3xl text-dark-200;
+  @apply max-sm:text-xl text-3xl text-[#9090a8];
 }
 
 label {
-  @apply text-dark-200;
+  @apply text-[#9090a8];
 }
+
 input {
-  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+  @apply w-full p-4 rounded-2xl focus:outline-none bg-surface-2 border border-border text-text-primary focus:border-[#7c6bff] transition-colors;
 }
 
 textarea {
-  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+  @apply w-full p-4 rounded-2xl focus:outline-none bg-surface-2 border border-border text-text-primary focus:border-[#7c6bff] transition-colors;
 }
 
 form {
@@ -51,25 +58,26 @@ form {
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #d4c8ff 0%, #ffffff 45%, #b8d0ff 100%);
   }
   .gradient-border {
-    @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
+    @apply bg-surface-2 border border-border p-4 rounded-2xl;
   }
   .primary-button {
-    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full;
+    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full font-medium transition-all;
   }
   .resume-nav {
-    @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
+    @apply flex flex-row justify-between items-center p-4 border-b border-border;
   }
   .resume-summary {
     @apply flex flex-row items-center justify-center p-4 gap-4;
     .category {
-      @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
+      @apply flex flex-row gap-2 items-center bg-surface-3 rounded-2xl p-4 w-full justify-between;
     }
   }
   .back-button {
-    @apply flex flex-row items-center gap-2 border border-gray-200 rounded-lg p-2 shadow-sm;
+    @apply flex flex-row items-center gap-2 border border-border rounded-lg p-2 text-text-secondary hover:text-text-primary hover:border-[#7c6bff] transition-colors;
   }
   .auth-button {
     @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white;
@@ -85,7 +93,7 @@ form {
   }
 
   .resume-card {
-    @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4;
+    @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-surface rounded-2xl p-4 border border-border;
   }
 
   .resume-card-header {
@@ -97,7 +105,7 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
+    @apply flex flex-row justify-between items-center bg-surface rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto border border-border;
   }
 
   .score-badge {
@@ -109,36 +117,37 @@ form {
   }
 
   .uplader-drag-area {
-    @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-[208px];
+    @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-surface-2 rounded-2xl min-h-[208px];
   }
   .uploader-selected-file {
-    @apply flex items-center justify-between p-3 bg-gray-50 rounded-2xl;
+    @apply flex items-center justify-between p-3 bg-surface-3 rounded-2xl;
   }
 }
 
 @utility bg-gradient {
-  background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);
+  background: linear-gradient(to bottom, #0f0f18 0%, #151520 60%, #1a0f1a 100%);
 }
 
 @utility text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #d4c8ff 0%, #ffffff 45%, #b8d0ff 100%);
 }
 
 @utility gradient-hover {
-  @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200;
+  background: rgba(124, 107, 255, 0.08);
 }
 
 @utility primary-gradient {
-  background: linear-gradient(to bottom, #8e98ff, #606beb);
-  box-shadow: 0px 74px 21px 0px #6678ef00;
+  background: linear-gradient(to bottom, #9b8cff, #6c7bff);
+  box-shadow: 0px 4px 20px 0px rgba(124, 107, 255, 0.35);
 }
 
 @utility primary-gradient-hover {
-  background: linear-gradient(to bottom, #717dff, #4957eb);
+  background: linear-gradient(to bottom, #a89dff, #7c8dff);
 }
 
 @utility inset-shadow {
-  box-shadow: inset 0 0 12px 0 rgba(36, 99, 235, 0.2);
+  box-shadow: inset 0 0 12px 0 rgba(124, 107, 255, 0.15);
   backdrop-filter: blur(10px);
 }
 

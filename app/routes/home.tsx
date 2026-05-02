@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: 'Resume Analyzer' },
+    { title: 'HireLens AI' },
     { name: 'description', content: 'Smart feedback for dream job!' },
   ];
 }
@@ -45,7 +45,7 @@ export default function Home() {
   }, [user]);
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main>
       <Navbar />
 
       <section className="main-section">
@@ -57,7 +57,7 @@ export default function Home() {
             <h2>Review your submissions and check AI-powered feedback.</h2>
           )}
           {user && (
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-[#9090a8] mt-2">
               {remaining}/5 analyses remaining today
             </p>
           )}

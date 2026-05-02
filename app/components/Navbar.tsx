@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/">
-        <p className="text-2xl font-bold text-gradient">RESUMIND</p>
+        <p className="text-2xl font-bold text-gradient">HireLens AI</p>
       </Link>
       <div className="flex items-center gap-4">
         <Link to="/upload" className="primary-button w-fit">
@@ -18,7 +18,7 @@ const Navbar = () => {
         </Link>
         <button
           onClick={handleSignOut}
-          className="text-sm text-gray-500 hover:text-gray-800 transition-colors"
+          className="text-sm text-text-secondary hover:text-text-primary transition-colors"
         >
           Sign Out
         </button>
