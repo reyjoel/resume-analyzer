@@ -1,5 +1,5 @@
 import { useState, useEffect, type FormEvent } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 import { supabase } from '~/lib/supabase';
 
 export const meta = () => [
@@ -55,6 +55,9 @@ function VerifyEmail({ email }: { email: string }) {
       >
         {cooldown > 0 ? `Resend in ${cooldown}s` : status === 'sending' ? 'Sending...' : 'Resend verification email'}
       </button>
+      <Link to="/" className="text-text-secondary text-sm hover:text-text-primary transition-colors">
+        ← Back to home
+      </Link>
     </div>
   );
 }
